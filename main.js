@@ -56,7 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
         drawCanvas();
     });
 
+    document.addEventListener('contextmenu', event => {
+        event.preventDefault();
+    });
+
     window.addEventListener('mousedown', event => {
+        if (event.button === 2) {
+            resetCanvas();
+
+            return;
+        }
+
         clicking = true;
         startX = event.clientX;
         startY = event.clientY;
